@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalClock</title>
+    <style>
+        body {
+            background-image: url(./digitalimage2.jpg);
+            background-size: 100% 150%;
+        }
+
+        .heading {
+            margin-top: 300px;
+            margin-left: 620px;
+        }
+
+        .main {
+            display: flex;
+            margin-left: 500px;
+        }
+
+        .watch {
+            height: 70px;
+            width: 100px;
+            background-color: rgb(132, 210, 236);
+            margin-left: 30px;
+            color: white;
+            font-size: 50px;
+            text-align: center;
+        }
+
+        p {
+            margin-left: 30px;
+            text-align: center;
+            height: 25px;
+            width: 100px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            margin-top: 0px;
+            padding-top: 7px;
+        }
+
+        .noon {
+            margin-left: 30px;
+            text-align: center;
+            height: 20px;
+            width: 60px;
+            background-color: rgb(13, 236, 13);
+            color: white;
+            margin-top: 73px;
+            padding-top: 5px;
+            margin-left: 10px;
+            padding-bottom: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <section class="heading">
+        <h5>D I G I T A L &nbsp;&nbsp; C L O C K </h5>
+    </section>
+
+    <section class="main">
+        <section>
+            <section class="watch" id="hours"></section>
+            <p>HOURS</p>
+        </section>
+        <section>
+            <section class="watch" id="minutes"></section>
+            <p>MINUTES</p>
+        </section>
+        <section>
+            <section class="watch" id="seconds"></section>
+            <p>SECONDS</p>
+        </section>
+        <section class="noon" id="am"></section>
+    </section>
+
+    <script>
+        // function digitalClock() {
+        //     const date = new Date();
+        //     let hours = date.getHours();
+        //     const minutes = date.getMinutes();
+        //     const seconds = date.getSeconds();
+        //     const noon = hours <= 12 ? 'AM' : 'PM';
+
+        //     hours1=hours < 10 ? `0${hours}` : hours;
+        //     minutes1=minutes < 10 ? `0${minutes}` : minutes;
+        //     seconds1=seconds < 10 ? `0${seconds}` : seconds;
+
+        //     document.getElementById('hours').innerText = hours1;
+        //     document.getElementById('minutes').innerText = minutes1;
+        //     document.getElementById('seconds').innerText = seconds1;
+        //     document.getElementById('am').innerText = noon;
+        // }
+
+        // setInterval(digitalClock, 1000);
+        // digitalClock()
+
+        setInterval(function digitalClock() {
+            const date = new Date();
+            let hours = date.getHours();
+            const minutes = date.getMinutes();
+            const seconds = date.getSeconds();
+            const noon = hours <= 12 ? 'AM' : 'PM';
+
+            hours = hours % 12 || 12
+
+            hours1 = hours < 10 ? `0${hours}` : hours;
+            minutes1 = minutes < 10 ? `0${minutes}` : minutes;
+            seconds1 = seconds < 10 ? `0${seconds}` : seconds;
+
+            document.getElementById('hours').innerText = hours1;
+            document.getElementById('minutes').innerText = minutes1;
+            document.getElementById('seconds').innerText = seconds1;
+            document.getElementById('am').innerText = noon;
+        },1000);
+
+
+    </script>
+</body>
+
+</html>
